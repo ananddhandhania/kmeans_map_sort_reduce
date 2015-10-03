@@ -3,10 +3,9 @@
 from math import sqrt
 import sys
 
-DIMENSION = 4
-CLUSTERS = 2
+DIMENSION = int(sys.argv[1])
 
-current_means_file = open("means","rb")
+current_means_file = open(sys.argv[2],"rb")
 
 mean = []
 listOfCentres = []
@@ -25,7 +24,9 @@ def nearestCluster(x,listOfCentres):
 			distanceWithCurrentCluster = rms(x,listOfCentres[i])
 			if distanceWithCurrentCluster < distance :
 				distance = distanceWithCurrentCluster
-				cluster = i+1			
+				cluster = i+1		
+	else :
+		raise Exception('Dimension : ' + str(DIMENSION) + ' does not match the size of feature : ' + str(len(x)))	
 	return cluster
 
 for line in current_means_file:

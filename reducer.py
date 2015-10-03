@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-DIMENSION = 4
 import sys
 
 previous_cluster = -1
