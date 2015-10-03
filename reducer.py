@@ -3,7 +3,7 @@
 import sys
 
 previous_cluster = -1
-sum = [0,0,0,0]
+sum = []
 cluster_size = 0
 
 def add(sample,sum):
@@ -34,4 +34,5 @@ for line in sys.stdin:
 		cluster_size = 1
 		previous_cluster = cluster
 
-print previous_cluster,'\t',normalized(sum,cluster_size)		
+if cluster_size !=0:
+	print previous_cluster,'\t',normalized(sum,cluster_size)		

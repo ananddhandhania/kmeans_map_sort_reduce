@@ -12,7 +12,9 @@ listOfCentres = []
 
 def rms(x,mean):
 	sum = 0
-	for i in range(len(mean)):
+	if len(x) != len(mean):
+		raise Exception('Dimension of feature vector ' + str(len(x)) + ' does not match the dimension of mean vector ' + str(len(mean)))
+	for i in range(len(x)):
 		sum = sum + float(pow(float(x[i]) - float(mean[i]),2))
 	return sqrt(sum)
 
